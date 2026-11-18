@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — every protocol with no token, ranked</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Token Launch Radar</h1>
+    <p class="sub">Every protocol in the snapshot that records no token, ranked by what its token would be worth — and how to farm it.</p>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+
+<section class="model" id="model"></section>
+
+<section class="controls">
+  <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search">
+  <select id="cat" aria-label="Category"><option value="">All categories</option></select>
+  <select id="chain" aria-label="Chain"><option value="">All chains</option></select>
+  <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+  <select id="sort" aria-label="Sort">
+    <option value="rank">Sort: rank</option>
+    <option value="implied">Sort: implied value</option>
+    <option value="tvl">Sort: TVL</option>
+    <option value="growth">Sort: 7-day growth</option>
+    <option value="age">Sort: age</option>
+  </select>
+</section>
+
+<main>
+  <table id="board">
+    <thead><tr>
+      <th>#</th><th>Protocol</th><th>Category</th><th>Chains</th>
+      <th class="num">TVL</th><th class="num">7d</th><th class="num">Age</th>
+      <th class="num">Implied value</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="count" id="count"></p>
+
+  <section id="detail" class="detail" hidden>
+    <button id="close" type="button">Close</button>
+    <div id="detail-body"></div>
+  </section>
+
+  <section class="live">
+    <h2>Already trading — the market's own values</h2>
+    <p class="sub">These protocols already have a token, so the board shows their market cap, not a model's guess. They are kept apart from the ranking.</p>
+    <table id="live-table">
+      <thead><tr><th>Protocol</th><th>Category</th><th>Chains</th><th class="num">TVL</th><th class="num">Market cap</th><th class="num">7d</th></tr></thead>
+      <tbody id="live-rows"></tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>Data: DefiLlama snapshot, sealed for this bounty. A protocol is shown as pre-token because its record carries no token — the record is not proof it has none. Implied values are this radar's own claim, never a promise a token is coming.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
